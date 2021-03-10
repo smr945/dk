@@ -3,9 +3,9 @@ name: 'GitHub Actions LeetCode Weekly Bot'
 on:
   push:
     branches: 
-      - main
+      - master
   schedule:
-    - cron: '18 11 * * *'
+    - cron: '24 11 * * *'
 
 jobs:
   dk:
