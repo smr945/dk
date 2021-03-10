@@ -6,7 +6,7 @@ on:
       - master
   workflow_dispatch:
   schedule:
-    - cron: '59 * * * *'
+    - cron: '1 * * * *'
 
 jobs:
   dk:
