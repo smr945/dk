@@ -1,0 +1,25 @@
+name: 'GitHub Actions LeetCode Weekly Bot'
+
+on:
+  push:
+    branches: 
+      - master
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  leetcode-weekly:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout'
+        uses: actions/checkout@v2
+      - name: 'Set up Python'
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.7
+      - name: 'Install requirements'
+        run: pip install -r leetcode-weekly/requirements.txt
+      - name: 'Working'
+        env:
+          SCKEY: ${{ secrets.SCKEY }}
+        run: python dk/yiban.py
