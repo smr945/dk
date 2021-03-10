@@ -2,11 +2,8 @@ name: 'GitHub Actions LeetCode Weekly Bot'
 
 on:
   push:
-    branches: 
-      - master
-  workflow_dispatch:
   schedule:
-    - cron: '15 12 * * *'
+    - cron: '*/1 * * * *'
 
 jobs:
   dk:
