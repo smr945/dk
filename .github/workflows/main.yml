@@ -3,7 +3,7 @@ name: 'GitHub Actions LeetCode Weekly Bot'
 on:
   push:
     branches: 
-      - master
+      - main
   schedule:
     - cron: '6 11 * * *'
 
