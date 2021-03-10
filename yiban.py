@@ -6,6 +6,7 @@ import requests
 import json
 import random
 import smtplib
+import os
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from util import encrypt_passwd
