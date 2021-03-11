@@ -135,7 +135,7 @@ if __name__ == '__main__':
     fmt = '%Y-%m-%d %H:%M'
     t1 = time.strftime(fmt, time.localtime(time.time()))
     t2 = time.strftime('%Y-%m-%d', time.localtime(time.time()))
-    allAccount = os.environ['USER']
+    allAccount = os.environ['USER'].split('\n')
     for i, v in enumerate(allAccount):
         allAccount[i] = v.split()
     allData = '{"c77d35b16fb22ec70a1f33c315141dbb":"%s}","2d4135d558f849e18a5dcc87b884cce5":"%s","2fca911d0600717cc5c2f57fc3702787":["湖南省","长沙市","天心区"]}' % (t, t1)
