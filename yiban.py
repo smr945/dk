@@ -16,7 +16,7 @@ num = 0
 
 
 class YiBan:
-    WFId = "5fc379fef7f94d1a09a118db05dec019"  # 疫情表单：固定表单值固定 每个大学可能不一样需要自行抓包 此处为长沙理工大学0512更新
+    WFId = "5fc379fef7f94d1a09a118db05dec019"  #  疫情表单：固定表单值固定 每个大学可能不一样需要自行抓包 此处为长沙理工大学0512更新
     CSRF = "sui-bian-fang-dian-dong-xi"  # 随机值 随便填点东西
     COOKIES = {"csrf_token": CSRF}  # 固定cookie 无需更改
     HEADERS = {"Origin": "https://c.uyiban.com", "User-Agent": "yiban"}  # 固定头 无需更改
