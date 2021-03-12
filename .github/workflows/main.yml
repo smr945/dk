@@ -20,5 +20,5 @@ jobs:
       - name: 'Working'
         env:
           USER: ${{ secrets.USER }}
-          EMAILPASS: ${{ secrets.EMAILPASS }}
+          PASSWD: ${{ secrets.PASSWD }}
         run: python yiban.py
