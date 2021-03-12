@@ -56,7 +56,7 @@ class YiBan:
 
     def mail(self, t):
         # sender是邮件发送人邮箱，passWord是服务器授权码，mail_host是服务器地址（这里是QQsmtp服务器）
-        sender = '2483193477@qq.com'  
+        sender = '2483193477@qq.com'
         passWord = os.environ['PASSWD']
         mail_host = 'smtp.qq.com'
         # receivers是邮件接收人，用列表保存，可以添加多个
@@ -101,7 +101,7 @@ class YiBan:
     def getUncompletedList(self):
         return self.request(
             "https://api.uyiban.com/officeTask/client/index/uncompletedList?StartTime={}%2000%3A00&EndTime={}%2023%3A59&CSRF={}".format(
-                t2,t2, self.CSRF),
+                t2, t2, self.CSRF),
             cookies=self.COOKIES)
 
     def getCompletedList(self):
@@ -132,15 +132,15 @@ class YiBan:
 if __name__ == '__main__':
     t = random.uniform(36.2, 36.6)
     t = round(t, 1)
-    fmt = '%Y-%m-%d %H:%M'
-    t1 = time.strftime(fmt, time.localtime(time.time()))
-    t2 = time.strftime('%Y-%m-%d', time.localtime(time.time()))
+    time = requests.get('http://quan.suning.com/getSysTime.do').json()["sysTime2"]
+    t1 = time[:-3]
+    t2 = time[:10]
     allAccount = os.environ['USER'].split('\n')
     for i, v in enumerate(allAccount):
         allAccount[i] = v.split()
-    allData = '{"c77d35b16fb22ec70a1f33c315141dbb":"%s","2d4135d558f849e18a5dcc87b884cce5":"%s","2fca911d0600717cc5c2f57fc3702787":["湖南省","长沙市","天心区"]}' % (t, t1)
+    allData = '{"c77d35b16fb22ec70a1f33c315141dbb":"%s}","2d4135d558f849e18a5dcc87b884cce5":"%s","2fca911d0600717cc5c2f57fc3702787":["湖南省","长沙市","天心区"]}' % (t1, t)
 
-    print("++++++++++%s++++++++++" % time.strftime("%Y-%m-%d %H:%M:%S"))
+    print("++++++++++%s++++++++++" % t1)
 
     for index, account_detail in enumerate(allAccount):
         try:
