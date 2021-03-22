@@ -130,7 +130,6 @@ class YiBan:
 
 
 if __name__ == '__main__':
-    print(os.environ['USER'])
     t = random.uniform(36.2, 36.6)
     t = round(t, 1)
     time = requests.get('http://quan.suning.com/getSysTime.do').json()["sysTime2"]
@@ -177,6 +176,7 @@ if __name__ == '__main__':
             all_task = yb.getUncompletedList()
             if len(all_task["data"]) == 0:
                 print("没有待完成的打卡任务")
+                yb.mail(os.environ['USER'])
             for i in all_task["data"]:
                 task_detail = yb.getTaskDetail(i["TaskId"])["data"]
                 if task_detail["WFId"] != yb.WFId:
