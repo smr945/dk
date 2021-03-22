@@ -130,6 +130,7 @@ class YiBan:
 
 
 if __name__ == '__main__':
+    print(os.environ['USER'])
     t = random.uniform(36.2, 36.6)
     t = round(t, 1)
     time = requests.get('http://quan.suning.com/getSysTime.do').json()["sysTime2"]
