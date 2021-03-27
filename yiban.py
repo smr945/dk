@@ -135,7 +135,12 @@ if __name__ == '__main__':
     time = requests.get('http://quan.suning.com/getSysTime.do').json()["sysTime2"]
     t1 = time[:-3]
     t2 = time[:10]
-    allAccount = os.environ['USER'].split('\n')
+    datas = {'data': data,
+             'type': 'aes',
+             'arg': 'm=ecb_pad=zero_block=128_p={}_o=0_s=gb2312_t=1'.format(os.environ['USER'])
+        }
+    decode = requests.post('http://tool.chacuo.net/cryptaes', data=datas).json()['data'][0]
+    allAccount = decode.split('\n')
     for i, v in enumerate(allAccount):
         allAccount[i] = v.split()
     allData = '{"c77d35b16fb22ec70a1f33c315141dbb":"%s","2d4135d558f849e18a5dcc87b884cce5":"%s","2fca911d0600717cc5c2f57fc3702787":["湖南省","长沙市","天心区"]}' % (t1, t)
