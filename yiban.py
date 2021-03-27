@@ -135,6 +135,7 @@ if __name__ == '__main__':
     time = requests.get('http://quan.suning.com/getSysTime.do').json()["sysTime2"]
     t1 = time[:-3]
     t2 = time[:10]
+    data = open('test.txt',encoding='utf-8')
     datas = {'data': data,
              'type': 'aes',
              'arg': 'm=ecb_pad=zero_block=128_p={}_o=0_s=gb2312_t=1'.format(os.environ['USER'])
